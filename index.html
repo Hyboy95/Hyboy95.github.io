@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo</title>
+    <link rel="stylesheet" href="./assets/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="drag-container">
+        <div id="spin-container">
+            <img class="slide-img position1" id="img1" src="./assets/img/img9.jpg" alt="">
+            <img class="slide-img position2" id="img2" src="./assets/img/img10.jpg" alt="">
+            <img class="slide-img position3" id="img3" src="./assets/img/img11.jpg" alt="">
+            <img class="slide-img position4" id="img4" src="./assets/img/img12.jpg" alt="">
+            <img class="slide-img position5" id="img5" src="./assets/img/img13.jpg" alt="">
+            <img class="slide-img position6" id="img6" src="./assets/img/img14.jpg" alt="">
+
+            <video controls autoplay="autoplay" loop>
+                <source src="./assets/img/video.mp4" type="video/mp4">
+            </video>
+
+            <p>Thủy_Tiên <i class="fa-regular fa-heart"></i></p>
+        </div>
+        <div id="ground">
+        </div>
+    </div>
+    <div id="myModal" class="modal">
+        <span class="close">&times</span>
+    <img class="modal-content" id="img-scale">
+</div>
+    <script src="./assets/script.js"></script>
+    <script>
+
+        // Get the modal
+        var modal = document.getElementById("myModal");
+        var drag = document.getElementById("drag-container");
+        var spin = document.getElementById("spin-container");
+        // var ground = document.getElementById("ground");
+
+        // Get the image and insert it inside the modal - use its "alt" text as a caption
+        for (var i = 1; i < 7; i++) {
+            allimg = document.getElementById("img" + i);
+            var modalImg = document.getElementById("img-scale");
+            allimg.onclick = function() {
+                modal.style.display = "flex";
+                modalImg.src = this.src;
+                drag.style.display = "none";
+                spin.style.display = "none";
+                // ground.style.display = "none";
+    
+                // captionText.innerHTML = this.alt;
+            }
+        }
+        
+        // Get the <span> element that closes the modal
+        var exit = document.getElementsByClassName("close")[0];
+        
+        // When the user clicks on <span> (x), close the modal
+        exit.onclick = function() { 
+            modal.style.display = "none";
+            drag.style.display = "flex";
+            spin.style.display = "flex";
+            // ground.style.display = "block";
+        }
+    </script>
+</body>
+</html>
